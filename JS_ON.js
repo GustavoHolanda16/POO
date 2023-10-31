@@ -6,3 +6,10 @@ const mesa = {
 }
 
 console.log(mesa)
+
+const animal= {
+    tipo: 'gato',
+    nome: 'gatinho',
+    sons(){ console.log('miau miau')}
+}
+console.log(animal)
