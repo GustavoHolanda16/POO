@@ -71,7 +71,7 @@ while (cont) {
         case '4':
             console.log("Relatório de turmas e alunos:")
             turmas.forEach(turma => {
-                console.log(': '+turma.codigo+ ', Nível: '+turma.nivel+ ', Módulo: '+turma.modulo)
+                console.log('Cod.Turma: '+turma.codigo+ ', Nível: '+turma.nivel+ ', Módulo: '+turma.modulo)
                 console.log('Alunos:')
                 turma.alunos.forEach(aluno => console.log('Matrícula: '+aluno.matricula+', Nome: '+aluno.nome+', Idade: '+aluno.idade))
                 console.log('+++++++++++++++++++++');
