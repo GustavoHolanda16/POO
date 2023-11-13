@@ -60,7 +60,7 @@ for (let x of Object.keys(carrinho)) {
 // Exercicio
 
 const prompt = require('prompt-sync')()
-const frutasJason ={
+const frutasJason = {
     "0": "maca",
     "1": "acerola",
     "2": "laranja",
@@ -71,12 +71,14 @@ console.log(frutasJason)
 let continuar = true
 //loop para teste
 while(continuar){
-  const numeroAleatorio = Math.floor(Math.random() * 5) 
+const numeroAleatorio = Math.floor(Math.random() * 5)
 let x = prompt('Digite uma fruta aqui e veremos se vc acerta: ')
 let y = frutasJason[numeroAleatorio]
 const meuArray = y.split('')
+console.log(meuArray)
 const array2 = x.split('')
 //verificação de condicionais para igualdade
+
 if (x == y) {
   console.log('Acertou a palavra é: ' + x)
 }
