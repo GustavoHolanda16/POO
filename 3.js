@@ -36,9 +36,12 @@ while (cont) {
         let nome = prompt('Digite o nome do aluno: ')
         let idade = prompt('Digite a idade do aluno: ')
         let x = prompt('Digite a qual turma esse aluno pertence: ') 
-        let selectedTurma = turmas.find(turma => turma['Cod. Turma'] == x);
 
-        if (selectedTurma) {
+        if (!turmas[x-1]) {
+            console.log('A turma não existe.');
+            return;
+        }
+        else {
             let aluno = {
                 'Cod.Aluno': Id_aluno,
                 'Nome': nome,
@@ -46,15 +49,12 @@ while (cont) {
                 'Cod. Turma': x
             };
             alunos.push(aluno);
-            selectedTurma['Alunos'].push(aluno);
+            turmas[x-1].Alunos.push(aluno);
             console.clear();
             console.log('Aluno cadastrado com sucesso!');
         }
-        else {
-        console.clear();
-        console.log('Turma não encontrada.');
-        }
     }
+
     else if (escolha == 3){
         
     }
