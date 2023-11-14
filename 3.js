@@ -1,70 +1,57 @@
 const prompt = require('prompt-sync')();
-let alunos=[]
-let turmas =[]
-let cont = true;
-let Id_turma = 0;
-let Id_aluno = 0;
-let x=0
+let turmas =[];
+let alunos = [];
+let ultimaMatricula = 1;
 
-while (cont) {
-    const escolha = prompt(
-        "Selecione uma opção:\n" +
-        "1. Registrar dados de uma turma\n" +
-        "2. Registrar dados de um novo aluno\n" +
-        "3. Editar dados de um aluno\n" +
-        "4. Emitir relatório\n" +
-        "0. Sair\n" +
-        "Digite aqui: "
-    );
-    console.clear();
-    if (escolha == '1'){
-        Id_turma++
-        let nivel = prompt('Digite o nivel da turma: ')
-        let modulo = prompt ('Digite o modulo da turma: ')
-        let turma = {}
-        turma['Cod. Turma'] = Id_turma
-        turma['Nivel'] = nivel
-        turma['Modulo'] = modulo
-        turma['Alunos'] = alunos
-        console.log(turma)
-        turmas.push(turma)
-        console.clear()
-        console.log('Turma criada com sucesso!')
-    }
-    else if (escolha == '2'){
-        Id_aluno++
-        let nome = prompt('Digite o nome do aluno: ')
-        let idade = prompt('Digite a idade do aluno: ')
-        let x = prompt('Digite a qual turma esse aluno pertence: ') 
+function adicionarAluno(){
+  let nomeAluno = prompt ("Nome do Aluno: ")
+  let idadeAluno = prompt ("Idade do Aluno: ")
+  let matriculaAluno = ultimaMatricula;
+  
+  let aluno = {}
+  aluno.Cod = ultimaMatricula
+  aluno.nome = nomeAluno;
+  aluno.idade = idadeAluno;
+  aluno.id  = matriculaAluno;
+  alunos.push(aluno)
+  ultimaMatricula++;
+}
 
-        if (!turmas[x-1]) {
-            console.log('A turma não existe.');
-            return;
-        }
-        else {
-            let aluno = {
-                'Cod.Aluno': Id_aluno,
-                'Nome': nome,
-                'Idade': idade,
-                'Cod. Turma': x
-            };
-            alunos.push(aluno);
-            turmas[x-1].Alunos.push(aluno);
-            console.clear();
-            console.log('Aluno cadastrado com sucesso!');
-        }
-    }
+let continuar = true;
 
-    else if (escolha == 3){
-        
-    }
-    else if (escolha === '4') {
-        console.log(alunos)
-        console.log (turmas)
-    }
-    else if (escolha == '0'){
-        console.log('Você escolheu sair!')
-        cont=false
-    }
+while(continuar){
+  console.log("-- Escola Online ---")
+  console.log("Adicione alunos")
 
+
+  console.log('Cadastro Alunos?')
+  console.log('1 - Para cadastrar alunos')
+  console.log('2 - Para ver registros')
+  console.log('3 - Para sair')
+  let x = prompt('Digite aqui: ')
+  console.clear()
+  
+  if (x == "1"){
+    console.log('Vamos continuar...')
+    adicionarAluno();
+    console.clear()
+  }
+  else if (x == '2'){
+    alunos.forEach(aluno => {
+        console.log('Tabela de Alunos:')
+        console.log('---------------------------')
+        console.log('Cod.Matricula:',aluno.Cod);
+        console.log('Nome:',aluno.nome)
+        console.log('Idade:',aluno.idade)
+        console.log('---------------------------')
+    
+      });
+  }
+  else if (x=='3'){
+    console.log('Vamos sair...')
+    continuar=false
+  }
+  else{
+    console.log('Escolha errada!')
+  }
 }
