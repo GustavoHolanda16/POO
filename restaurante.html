@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-3">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante</title>
+    <link rel="stylesheet" href="restaurante.css">
+</head>
+<body id="container">
+    <h1>Precificação Refeição</h1>
+    <p>Nome do Restaurante:
+        <input type="text" id="nome" required placeholder="Barriga">
+    </p>
+    <p>Valor por Kg:
+        <input type="number" id="val" required placeholder="10 R$"> 
+    </p>
+    <p>Peso:
+        <input type="number" id="kg" required placeholder="1 kg">
+    </p>
+    <button type="button" onclick="preco()">Calcular Valor</button>
+    <h3 id="nomeres"></h3>
+    <h3 id="valor"></h3>
+    <script src="restaurante.js"></script>
+    
+</body>
+</html>
